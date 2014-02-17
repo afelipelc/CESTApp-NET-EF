@@ -1,0 +1,430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2001B386-9D99-4477-A886-ECFAD2105BEB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CESTApp</RootNamespace>
+    <AssemblyName>CESTApp</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo-utim.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F90159E9EB0DEC4BF5F6FAD0B6AB371E9014D7A2</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>CESTApp_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>CESTApp.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="MisControles, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdministradorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministradorFrm.Designer.cs">
+      <DependentUpon>AdministradorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CajaCobroFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CajaCobroFrm.Designer.cs">
+      <DependentUpon>CajaCobroFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapturarDiagnosticoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapturarDiagnosticoFrm.Designer.cs">
+      <DependentUpon>CapturarDiagnosticoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\AuxPersona.cs" />
+    <Compile Include="Clases\DetallesServicio.cs" />
+    <Compile Include="Clases\Diagnostico.cs" />
+    <Compile Include="Clases\EstadoServicio.cs" />
+    <Compile Include="Clases\IngresoAnio.cs" />
+    <Compile Include="Clases\Servicio.cs" />
+    <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="DatosDelServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatosDelServicio.Designer.cs">
+      <DependentUpon>DatosDelServicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatosUsuarioFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatosUsuarioFrm.Designer.cs">
+      <DependentUpon>DatosUsuarioFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EstudiosARealizarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EstudiosARealizarFrm.Designer.cs">
+      <DependentUpon>EstudiosARealizarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios.Designer.cs">
+      <DependentUpon>GestionUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginFrm.Designer.cs">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Modelo.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportesFrm.Designer.cs">
+      <DependentUpon>ReportesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ImprimirDiagnosticoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ImprimirDiagnosticoFrm.Designer.cs">
+      <DependentUpon>ImprimirDiagnosticoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ReporteEstudiosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ReporteEstudiosFrm.Designer.cs">
+      <DependentUpon>ReporteEstudiosFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ReporteIngresosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ReporteIngresosFrm.Designer.cs">
+      <DependentUpon>ReporteIngresosFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ReporteServiciosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ReporteServiciosFrm.Designer.cs">
+      <DependentUpon>ReporteServiciosFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiciosEnAtencionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiciosEnAtencionFrm.Designer.cs">
+      <DependentUpon>ServiciosEnAtencionFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiciosMedicoCEFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiciosMedicoCEFrm.Designer.cs">
+      <DependentUpon>ServiciosMedicoCEFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiciosNoPagadosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiciosNoPagadosFrm.Designer.cs">
+      <DependentUpon>ServiciosNoPagadosFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Area.cs" />
+    <Compile Include="Clases\AuxPaciente.cs" />
+    <Compile Include="Clases\LugarResidencia.cs" />
+    <Compile Include="Clases\MedicoCanalizador.cs" />
+    <Compile Include="DatosEstudioFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatosEstudioFrm.Designer.cs">
+      <DependentUpon>DatosEstudioFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatosMedicoCEForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatosMedicoCEForm.Designer.cs">
+      <DependentUpon>DatosMedicoCEForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Estudio.cs" />
+    <Compile Include="EstudiosMedicoCanalizadorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EstudiosMedicoCanalizadorFrm.Designer.cs">
+      <DependentUpon>EstudiosMedicoCanalizadorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EstudiosRealizadosAPacienteFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EstudiosRealizadosAPacienteFrm.Designer.cs">
+      <DependentUpon>EstudiosRealizadosAPacienteFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionEstudiosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionEstudiosFrm.Designer.cs">
+      <DependentUpon>GestionEstudiosFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMedicosCanalizadoresFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionMedicosCanalizadoresFrm.Designer.cs">
+      <DependentUpon>GestionMedicosCanalizadoresFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMedicosCEForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionMedicosCEForm.Designer.cs">
+      <DependentUpon>GestionMedicosCEForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionPacientesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionPacientesFrm.Designer.cs">
+      <DependentUpon>GestionPacientesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\MedicoCE.cs" />
+    <Compile Include="Clases\Paciente.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecepcionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecepcionFrm.Designer.cs">
+      <DependentUpon>RecepcionFrm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdministradorFrm.resx">
+      <DependentUpon>AdministradorFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CajaCobroFrm.resx">
+      <DependentUpon>CajaCobroFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapturarDiagnosticoFrm.resx">
+      <DependentUpon>CapturarDiagnosticoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatosDelServicio.resx">
+      <DependentUpon>DatosDelServicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatosUsuarioFrm.resx">
+      <DependentUpon>DatosUsuarioFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EstudiosARealizarFrm.resx">
+      <DependentUpon>EstudiosARealizarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionUsuarios.resx">
+      <DependentUpon>GestionUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginFrm.resx">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportesFrm.resx">
+      <DependentUpon>ReportesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\DiagnosticoRpt.rdlc" />
+    <EmbeddedResource Include="Reportes\ImprimirDiagnosticoFrm.resx">
+      <DependentUpon>ImprimirDiagnosticoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\IngresosRpt.rdlc" />
+    <EmbeddedResource Include="Reportes\EstudiosRpt.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteEstudiosFrm.resx">
+      <DependentUpon>ReporteEstudiosFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ServiciosRpt.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteIngresosFrm.resx">
+      <DependentUpon>ReporteIngresosFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteServiciosFrm.resx">
+      <DependentUpon>ReporteServiciosFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiciosEnAtencionFrm.resx">
+      <DependentUpon>ServiciosEnAtencionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiciosMedicoCEFrm.resx">
+      <DependentUpon>ServiciosMedicoCEFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiciosNoPagadosFrm.resx">
+      <DependentUpon>ServiciosNoPagadosFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatosEstudioFrm.resx">
+      <DependentUpon>DatosEstudioFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatosMedicoCEForm.resx">
+      <DependentUpon>DatosMedicoCEForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EstudiosMedicoCanalizadorFrm.resx">
+      <DependentUpon>EstudiosMedicoCanalizadorFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EstudiosRealizadosAPacienteFrm.resx">
+      <DependentUpon>EstudiosRealizadosAPacienteFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionEstudiosFrm.resx">
+      <DependentUpon>GestionEstudiosFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionMedicosCanalizadoresFrm.resx">
+      <DependentUpon>GestionMedicosCanalizadoresFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionMedicosCEForm.resx">
+      <DependentUpon>GestionMedicosCEForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionPacientesFrm.resx">
+      <DependentUpon>GestionPacientesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="RecepcionFrm.resx">
+      <DependentUpon>RecepcionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Modelo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Modelo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CESTApp_TemporaryKey.pfx" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\DBEntities.datasource" />
+    <None Include="Properties\DataSources\EstudiosRealizados_Result.datasource" />
+    <None Include="Properties\DataSources\IngresosDia_Result.datasource" />
+    <None Include="Properties\DataSources\IngresosFechas_Result.datasource" />
+    <None Include="Properties\DataSources\ServiciosPrestados_Result.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Sql.Server.Express.10.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2008 Express Edition</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CESTAppDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CESTAppDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>CESTAppDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="logo-utim.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

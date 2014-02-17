@@ -1,0 +1,1013 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DBModelStoreContainer">
+          <EntitySet Name="Area" EntityType="DBModel.Store.Area" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AreaMedico" EntityType="DBModel.Store.AreaMedico" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DetalleServicio" EntityType="DBModel.Store.DetalleServicio" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Diagnostico" EntityType="DBModel.Store.Diagnostico" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EstadoServicio" EntityType="DBModel.Store.EstadoServicio" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Estudio" EntityType="DBModel.Store.Estudio" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LugarResidencia" EntityType="DBModel.Store.LugarResidencia" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MedicoCanalizador" EntityType="DBModel.Store.MedicoCanalizador" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MedicoCE" EntityType="DBModel.Store.MedicoCE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Paciente" EntityType="DBModel.Store.Paciente" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Rol" EntityType="DBModel.Store.Rol" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Servicio" EntityType="DBModel.Store.Servicio" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Usuario" EntityType="DBModel.Store.Usuario" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UsuarioMedico" EntityType="DBModel.Store.UsuarioMedico" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AreaMedico_AreaCategoria" Association="DBModel.Store.FK_AreaMedico_AreaCategoria">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="AreaMedico" EntitySet="AreaMedico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AreaMedico_MedicoCE" Association="DBModel.Store.FK_AreaMedico_MedicoCE">
+            <End Role="MedicoCE" EntitySet="MedicoCE" />
+            <End Role="AreaMedico" EntitySet="AreaMedico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetalleServicio_Estudio" Association="DBModel.Store.FK_DetalleServicio_Estudio">
+            <End Role="Estudio" EntitySet="Estudio" />
+            <End Role="DetalleServicio" EntitySet="DetalleServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetalleServicio_Servicio" Association="DBModel.Store.FK_DetalleServicio_Servicio">
+            <End Role="Servicio" EntitySet="Servicio" />
+            <End Role="DetalleServicio" EntitySet="DetalleServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Diagnostico_Servicio" Association="DBModel.Store.FK_Diagnostico_Servicio">
+            <End Role="Servicio" EntitySet="Servicio" />
+            <End Role="Diagnostico" EntitySet="Diagnostico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paciente_LugarResidencia" Association="DBModel.Store.FK_Paciente_LugarResidencia">
+            <End Role="LugarResidencia" EntitySet="LugarResidencia" />
+            <End Role="Paciente" EntitySet="Paciente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rol_Usuario" Association="DBModel.Store.FK_Rol_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Rol" EntitySet="Rol" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicio_EstadoServicio" Association="DBModel.Store.FK_Servicio_EstadoServicio">
+            <End Role="EstadoServicio" EntitySet="EstadoServicio" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicio_MedicoCanalizador" Association="DBModel.Store.FK_Servicio_MedicoCanalizador">
+            <End Role="MedicoCanalizador" EntitySet="MedicoCanalizador" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicio_MedicoCE" Association="DBModel.Store.FK_Servicio_MedicoCE">
+            <End Role="MedicoCE" EntitySet="MedicoCE" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicio_Paciente" Association="DBModel.Store.FK_Servicio_Paciente">
+            <End Role="Paciente" EntitySet="Paciente" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioMedico_MedicoCE" Association="DBModel.Store.FK_UsuarioMedico_MedicoCE">
+            <End Role="MedicoCE" EntitySet="MedicoCE" />
+            <End Role="UsuarioMedico" EntitySet="UsuarioMedico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioMedico_Usuario" Association="DBModel.Store.FK_UsuarioMedico_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="UsuarioMedico" EntitySet="UsuarioMedico" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="nchar" Nullable="false" MaxLength="16" />
+        </EntityType>
+        <EntityType Name="AreaMedico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdMedico" Type="int" Nullable="false" />
+          <Property Name="IdArea" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DetalleServicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdServicio" Type="int" Nullable="false" />
+          <Property Name="IdEstudio" Type="int" Nullable="false" />
+          <Property Name="Precio" Type="decimal" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Diagnostico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdServicio" Type="int" Nullable="false" />
+          <Property Name="Resultado" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EstadoServicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="nchar" Nullable="false" MaxLength="16" />
+        </EntityType>
+        <EntityType Name="Estudio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="nchar" Nullable="false" MaxLength="32" />
+          <Property Name="Descripcion" Type="text" Nullable="false" />
+          <Property Name="Categoria" Type="nchar" Nullable="false" MaxLength="12" />
+          <Property Name="Costo" Type="decimal" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LugarResidencia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="nchar" Nullable="false" MaxLength="96" />
+        </EntityType>
+        <EntityType Name="MedicoCanalizador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="nchar" Nullable="false" MaxLength="32" />
+          <Property Name="Apellidos" Type="nchar" Nullable="false" MaxLength="32" />
+          <Property Name="CedulaProfesional" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MedicoCE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="nchar" Nullable="false" MaxLength="32" />
+          <Property Name="Apellidos" Type="nchar" Nullable="false" MaxLength="32" />
+          <Property Name="Especialidad" Type="nchar" Nullable="false" MaxLength="48" />
+          <Property Name="CedulaProfesional" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Paciente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="nchar" Nullable="false" MaxLength="32" />
+          <Property Name="Apellidos" Type="nchar" Nullable="false" MaxLength="32" />
+          <Property Name="Edad" Type="tinyint" Nullable="false" />
+          <Property Name="Sexo" Type="nchar" Nullable="false" MaxLength="1" />
+          <Property Name="IdLugarResidencia" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="nchar" Nullable="false" MaxLength="16" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Servicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="IdPaciente" Type="int" Nullable="false" />
+          <Property Name="IdMedicoCanalizador" Type="int" Nullable="false" />
+          <Property Name="IdMedicoResponsable" Type="int" Nullable="false" />
+          <Property Name="IdEstado" Type="tinyint" Nullable="false" />
+          <Property Name="Pagado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="nchar" Nullable="false" MaxLength="32" />
+          <Property Name="Apellidos" Type="nchar" Nullable="false" MaxLength="32" />
+          <Property Name="NombreUsuario" Type="nchar" Nullable="false" MaxLength="12" />
+          <Property Name="Password" Type="nchar" Nullable="false" MaxLength="12" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UsuarioMedico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdMedico" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AreaMedico_AreaCategoria">
+          <End Role="Area" Type="DBModel.Store.Area" Multiplicity="1" />
+          <End Role="AreaMedico" Type="DBModel.Store.AreaMedico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AreaMedico">
+              <PropertyRef Name="IdArea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AreaMedico_MedicoCE">
+          <End Role="MedicoCE" Type="DBModel.Store.MedicoCE" Multiplicity="1" />
+          <End Role="AreaMedico" Type="DBModel.Store.AreaMedico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicoCE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AreaMedico">
+              <PropertyRef Name="IdMedico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetalleServicio_Estudio">
+          <End Role="Estudio" Type="DBModel.Store.Estudio" Multiplicity="1" />
+          <End Role="DetalleServicio" Type="DBModel.Store.DetalleServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DetalleServicio">
+              <PropertyRef Name="IdEstudio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetalleServicio_Servicio">
+          <End Role="Servicio" Type="DBModel.Store.Servicio" Multiplicity="1" />
+          <End Role="DetalleServicio" Type="DBModel.Store.DetalleServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DetalleServicio">
+              <PropertyRef Name="IdServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Diagnostico_Servicio">
+          <End Role="Servicio" Type="DBModel.Store.Servicio" Multiplicity="1" />
+          <End Role="Diagnostico" Type="DBModel.Store.Diagnostico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Diagnostico">
+              <PropertyRef Name="IdServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paciente_LugarResidencia">
+          <End Role="LugarResidencia" Type="DBModel.Store.LugarResidencia" Multiplicity="1" />
+          <End Role="Paciente" Type="DBModel.Store.Paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LugarResidencia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Paciente">
+              <PropertyRef Name="IdLugarResidencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rol_Usuario">
+          <End Role="Usuario" Type="DBModel.Store.Usuario" Multiplicity="1" />
+          <End Role="Rol" Type="DBModel.Store.Rol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rol">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicio_EstadoServicio">
+          <End Role="EstadoServicio" Type="DBModel.Store.EstadoServicio" Multiplicity="1" />
+          <End Role="Servicio" Type="DBModel.Store.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoServicio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicio_MedicoCanalizador">
+          <End Role="MedicoCanalizador" Type="DBModel.Store.MedicoCanalizador" Multiplicity="1" />
+          <End Role="Servicio" Type="DBModel.Store.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicoCanalizador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="IdMedicoCanalizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicio_MedicoCE">
+          <End Role="MedicoCE" Type="DBModel.Store.MedicoCE" Multiplicity="1" />
+          <End Role="Servicio" Type="DBModel.Store.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicoCE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="IdMedicoResponsable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicio_Paciente">
+          <End Role="Paciente" Type="DBModel.Store.Paciente" Multiplicity="1" />
+          <End Role="Servicio" Type="DBModel.Store.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paciente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="IdPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioMedico_MedicoCE">
+          <End Role="MedicoCE" Type="DBModel.Store.MedicoCE" Multiplicity="1" />
+          <End Role="UsuarioMedico" Type="DBModel.Store.UsuarioMedico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicoCE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioMedico">
+              <PropertyRef Name="IdMedico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioMedico_Usuario">
+          <End Role="Usuario" Type="DBModel.Store.Usuario" Multiplicity="1" />
+          <End Role="UsuarioMedico" Type="DBModel.Store.UsuarioMedico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioMedico">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="EstudiosRealizados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="inicio" Type="date" Mode="In" />
+          <Parameter Name="fin" Type="date" Mode="In" />
+        </Function>
+        <Function Name="IngresosDia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fecha" Type="date" Mode="In" />
+        </Function>
+        <Function Name="IngresosFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="inicio" Type="date" Mode="In" />
+          <Parameter Name="fin" Type="date" Mode="In" />
+        </Function>
+        <Function Name="ServiciosPrestados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="inicio" Type="date" Mode="In" />
+          <Parameter Name="fin" Type="date" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Area" EntityType="DBModel.Area" />
+          <EntitySet Name="AreaMedico" EntityType="DBModel.AreaMedico" />
+          <EntitySet Name="DetalleServicio" EntityType="DBModel.DetalleServicio" />
+          <EntitySet Name="Diagnostico" EntityType="DBModel.Diagnostico" />
+          <EntitySet Name="EstadoServicio" EntityType="DBModel.EstadoServicio" />
+          <EntitySet Name="Estudio" EntityType="DBModel.Estudio" />
+          <EntitySet Name="LugarResidencia" EntityType="DBModel.LugarResidencia" />
+          <EntitySet Name="MedicoCanalizador" EntityType="DBModel.MedicoCanalizador" />
+          <EntitySet Name="MedicoCE" EntityType="DBModel.MedicoCE" />
+          <EntitySet Name="Paciente" EntityType="DBModel.Paciente" />
+          <EntitySet Name="Rol" EntityType="DBModel.Rol" />
+          <EntitySet Name="Servicio" EntityType="DBModel.Servicio" />
+          <EntitySet Name="Usuario" EntityType="DBModel.Usuario" />
+          <EntitySet Name="UsuarioMedico" EntityType="DBModel.UsuarioMedico" />
+          <AssociationSet Name="FK_AreaMedico_AreaCategoria" Association="DBModel.FK_AreaMedico_AreaCategoria">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="AreaMedico" EntitySet="AreaMedico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AreaMedico_MedicoCE" Association="DBModel.FK_AreaMedico_MedicoCE">
+            <End Role="MedicoCE" EntitySet="MedicoCE" />
+            <End Role="AreaMedico" EntitySet="AreaMedico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetalleServicio_Estudio" Association="DBModel.FK_DetalleServicio_Estudio">
+            <End Role="Estudio" EntitySet="Estudio" />
+            <End Role="DetalleServicio" EntitySet="DetalleServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetalleServicio_Servicio" Association="DBModel.FK_DetalleServicio_Servicio">
+            <End Role="Servicio" EntitySet="Servicio" />
+            <End Role="DetalleServicio" EntitySet="DetalleServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Diagnostico_Servicio" Association="DBModel.FK_Diagnostico_Servicio">
+            <End Role="Servicio" EntitySet="Servicio" />
+            <End Role="Diagnostico" EntitySet="Diagnostico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicio_EstadoServicio" Association="DBModel.FK_Servicio_EstadoServicio">
+            <End Role="EstadoServicio" EntitySet="EstadoServicio" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paciente_LugarResidencia" Association="DBModel.FK_Paciente_LugarResidencia">
+            <End Role="LugarResidencia" EntitySet="LugarResidencia" />
+            <End Role="Paciente" EntitySet="Paciente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicio_MedicoCanalizador" Association="DBModel.FK_Servicio_MedicoCanalizador">
+            <End Role="MedicoCanalizador" EntitySet="MedicoCanalizador" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicio_MedicoCE" Association="DBModel.FK_Servicio_MedicoCE">
+            <End Role="MedicoCE" EntitySet="MedicoCE" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioMedico_MedicoCE" Association="DBModel.FK_UsuarioMedico_MedicoCE">
+            <End Role="MedicoCE" EntitySet="MedicoCE" />
+            <End Role="UsuarioMedico" EntitySet="UsuarioMedico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicio_Paciente" Association="DBModel.FK_Servicio_Paciente">
+            <End Role="Paciente" EntitySet="Paciente" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rol_Usuario" Association="DBModel.FK_Rol_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Rol" EntitySet="Rol" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioMedico_Usuario" Association="DBModel.FK_UsuarioMedico_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="UsuarioMedico" EntitySet="UsuarioMedico" />
+          </AssociationSet>
+          <FunctionImport Name="IngresosFechas" ReturnType="Collection(DBModel.IngresosFechas_Result)">
+            <Parameter Name="inicio" Mode="In" Type="DateTime" />
+            <Parameter Name="fin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="ServiciosPrestados" ReturnType="Collection(DBModel.ServiciosPrestados_Result)">
+            <Parameter Name="inicio" Mode="In" Type="DateTime" />
+            <Parameter Name="fin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="IngresosDia" ReturnType="Collection(DBModel.IngresosDia_Result)">
+          <Parameter Name="fecha" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="EstudiosRealizados" ReturnType="Collection(DBModel.EstudiosRealizados_Result)">
+            <Parameter Name="inicio" Mode="In" Type="DateTime" />
+            <Parameter Name="fin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="16" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="AreaMedico" Relationship="DBModel.FK_AreaMedico_AreaCategoria" FromRole="Area" ToRole="AreaMedico" />
+        </EntityType>
+        <EntityType Name="AreaMedico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMedico" Type="Int32" Nullable="false" />
+          <Property Name="IdArea" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Area" Relationship="DBModel.FK_AreaMedico_AreaCategoria" FromRole="AreaMedico" ToRole="Area" />
+          <NavigationProperty Name="MedicoCE" Relationship="DBModel.FK_AreaMedico_MedicoCE" FromRole="AreaMedico" ToRole="MedicoCE" />
+        </EntityType>
+        <EntityType Name="DetalleServicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdServicio" Type="Int32" Nullable="false" />
+          <Property Name="IdEstudio" Type="Int32" Nullable="false" />
+          <Property Name="Precio" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <NavigationProperty Name="Estudio" Relationship="DBModel.FK_DetalleServicio_Estudio" FromRole="DetalleServicio" ToRole="Estudio" />
+          <NavigationProperty Name="Servicio" Relationship="DBModel.FK_DetalleServicio_Servicio" FromRole="DetalleServicio" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="Diagnostico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdServicio" Type="Int32" Nullable="false" />
+          <Property Name="Resultado" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Servicio" Relationship="DBModel.FK_Diagnostico_Servicio" FromRole="Diagnostico" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="EstadoServicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="16" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Servicio" Relationship="DBModel.FK_Servicio_EstadoServicio" FromRole="EstadoServicio" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="Estudio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Categoria" Type="String" Nullable="false" MaxLength="12" Unicode="true" FixedLength="true" />
+          <Property Name="Costo" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="DetalleServicio" Relationship="DBModel.FK_DetalleServicio_Estudio" FromRole="Estudio" ToRole="DetalleServicio" />
+        </EntityType>
+        <EntityType Name="LugarResidencia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="96" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Paciente" Relationship="DBModel.FK_Paciente_LugarResidencia" FromRole="LugarResidencia" ToRole="Paciente" />
+        </EntityType>
+        <EntityType Name="MedicoCanalizador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
+          <Property Name="CedulaProfesional" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Servicio" Relationship="DBModel.FK_Servicio_MedicoCanalizador" FromRole="MedicoCanalizador" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="MedicoCE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="true" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="true" />
+          <Property Name="Especialidad" Type="String" Nullable="false" MaxLength="48" Unicode="true" FixedLength="true" />
+          <Property Name="CedulaProfesional" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AreaMedico" Relationship="DBModel.FK_AreaMedico_MedicoCE" FromRole="MedicoCE" ToRole="AreaMedico" />
+          <NavigationProperty Name="Servicio" Relationship="DBModel.FK_Servicio_MedicoCE" FromRole="MedicoCE" ToRole="Servicio" />
+          <NavigationProperty Name="UsuarioMedico" Relationship="DBModel.FK_UsuarioMedico_MedicoCE" FromRole="MedicoCE" ToRole="UsuarioMedico" />
+        </EntityType>
+        <EntityType Name="Paciente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" Unicode="true" FixedLength="false" />
+          <Property Name="Apellidos" Type="String" Nullable="false" Unicode="true" FixedLength="true" />
+          <Property Name="Edad" Type="Byte" Nullable="false" />
+          <Property Name="Sexo" Type="String" Nullable="false" MaxLength="6" Unicode="true" FixedLength="true" />
+          <Property Name="IdLugarResidencia" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="LugarResidencia" Relationship="DBModel.FK_Paciente_LugarResidencia" FromRole="Paciente" ToRole="LugarResidencia" />
+          <NavigationProperty Name="Servicio" Relationship="DBModel.FK_Servicio_Paciente" FromRole="Paciente" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="16" Unicode="true" FixedLength="true" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="DBModel.FK_Rol_Usuario" FromRole="Rol" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Servicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" />
+          <Property Name="IdPaciente" Type="Int32" Nullable="false" />
+          <Property Name="IdMedicoCanalizador" Type="Int32" Nullable="false" />
+          <Property Name="IdMedicoResponsable" Type="Int32" Nullable="false" />
+          <Property Name="IdEstado" Type="Byte" Nullable="false" />
+          <Property Name="Pagado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="DetalleServicio" Relationship="DBModel.FK_DetalleServicio_Servicio" FromRole="Servicio" ToRole="DetalleServicio" />
+          <NavigationProperty Name="Diagnostico" Relationship="DBModel.FK_Diagnostico_Servicio" FromRole="Servicio" ToRole="Diagnostico" />
+          <NavigationProperty Name="EstadoServicio" Relationship="DBModel.FK_Servicio_EstadoServicio" FromRole="Servicio" ToRole="EstadoServicio" />
+          <NavigationProperty Name="MedicoCanalizador" Relationship="DBModel.FK_Servicio_MedicoCanalizador" FromRole="Servicio" ToRole="MedicoCanalizador" />
+          <NavigationProperty Name="MedicoCE" Relationship="DBModel.FK_Servicio_MedicoCE" FromRole="Servicio" ToRole="MedicoCE" />
+          <NavigationProperty Name="Paciente" Relationship="DBModel.FK_Servicio_Paciente" FromRole="Servicio" ToRole="Paciente" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" annotation:StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="true" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="true" />
+          <Property Name="NombreUsuario" Type="String" Nullable="false" MaxLength="12" Unicode="true" FixedLength="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="12" Unicode="true" FixedLength="true" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Rol" Relationship="DBModel.FK_Rol_Usuario" FromRole="Usuario" ToRole="Rol" />
+          <NavigationProperty Name="UsuarioMedico" Relationship="DBModel.FK_UsuarioMedico_Usuario" FromRole="Usuario" ToRole="UsuarioMedico" />
+        </EntityType>
+        <EntityType Name="UsuarioMedico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdMedico" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MedicoCE" Relationship="DBModel.FK_UsuarioMedico_MedicoCE" FromRole="UsuarioMedico" ToRole="MedicoCE" />
+          <NavigationProperty Name="Usuario" Relationship="DBModel.FK_UsuarioMedico_Usuario" FromRole="UsuarioMedico" ToRole="Usuario" />
+        </EntityType>
+        <Association Name="FK_AreaMedico_AreaCategoria">
+          <End Role="Area" Type="DBModel.Area" Multiplicity="1" />
+          <End Role="AreaMedico" Type="DBModel.AreaMedico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AreaMedico">
+              <PropertyRef Name="IdArea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AreaMedico_MedicoCE">
+          <End Role="MedicoCE" Type="DBModel.MedicoCE" Multiplicity="1" />
+          <End Role="AreaMedico" Type="DBModel.AreaMedico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicoCE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AreaMedico">
+              <PropertyRef Name="IdMedico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetalleServicio_Estudio">
+          <End Role="Estudio" Type="DBModel.Estudio" Multiplicity="1" />
+          <End Role="DetalleServicio" Type="DBModel.DetalleServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DetalleServicio">
+              <PropertyRef Name="IdEstudio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetalleServicio_Servicio">
+          <End Role="Servicio" Type="DBModel.Servicio" Multiplicity="1" />
+          <End Role="DetalleServicio" Type="DBModel.DetalleServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DetalleServicio">
+              <PropertyRef Name="IdServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Diagnostico_Servicio">
+          <End Role="Servicio" Type="DBModel.Servicio" Multiplicity="1" />
+          <End Role="Diagnostico" Type="DBModel.Diagnostico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Diagnostico">
+              <PropertyRef Name="IdServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicio_EstadoServicio">
+          <End Role="EstadoServicio" Type="DBModel.EstadoServicio" Multiplicity="1" />
+          <End Role="Servicio" Type="DBModel.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoServicio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paciente_LugarResidencia">
+          <End Role="LugarResidencia" Type="DBModel.LugarResidencia" Multiplicity="1" />
+          <End Role="Paciente" Type="DBModel.Paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LugarResidencia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Paciente">
+              <PropertyRef Name="IdLugarResidencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicio_MedicoCanalizador">
+          <End Role="MedicoCanalizador" Type="DBModel.MedicoCanalizador" Multiplicity="1" />
+          <End Role="Servicio" Type="DBModel.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicoCanalizador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="IdMedicoCanalizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicio_MedicoCE">
+          <End Role="MedicoCE" Type="DBModel.MedicoCE" Multiplicity="1" />
+          <End Role="Servicio" Type="DBModel.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicoCE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="IdMedicoResponsable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioMedico_MedicoCE">
+          <End Role="MedicoCE" Type="DBModel.MedicoCE" Multiplicity="1" />
+          <End Role="UsuarioMedico" Type="DBModel.UsuarioMedico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicoCE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioMedico">
+              <PropertyRef Name="IdMedico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicio_Paciente">
+          <End Role="Paciente" Type="DBModel.Paciente" Multiplicity="1" />
+          <End Role="Servicio" Type="DBModel.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paciente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="IdPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rol_Usuario">
+          <End Role="Usuario" Type="DBModel.Usuario" Multiplicity="1" />
+          <End Role="Rol" Type="DBModel.Rol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rol">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioMedico_Usuario">
+          <End Role="Usuario" Type="DBModel.Usuario" Multiplicity="1" />
+          <End Role="UsuarioMedico" Type="DBModel.UsuarioMedico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioMedico">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="IngresosDia_Result">
+          <Property Type="DateTime" Name="Dia" Nullable="true" />
+          <Property Type="Decimal" Name="Ingreso" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="IngresosFechas_Result">
+          <Property Type="DateTime" Name="Dia" Nullable="true" />
+          <Property Type="Decimal" Name="Ingreso" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="ServiciosPrestados_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Paciente" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="Solicito" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="Atendio" Nullable="false" MaxLength="64" />
+          <Property Type="DateTime" Name="Fecha" Nullable="true" />
+          <Property Type="Decimal" Name="Importe" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="EstudiosRealizados_Result">
+          <Property Type="DateTime" Name="Fecha" Nullable="true" />
+          <Property Type="Int32" Name="IDEstudio" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="32" />
+          <Property Type="Int32" Name="Realizados" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBModelStoreContainer" CdmEntityContainer="DBEntities">
+          <EntitySetMapping Name="Area"><EntityTypeMapping TypeName="DBModel.Area"><MappingFragment StoreEntitySet="Area">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="AreaMedico"><EntityTypeMapping TypeName="DBModel.AreaMedico"><MappingFragment StoreEntitySet="AreaMedico">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+            <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="DetalleServicio"><EntityTypeMapping TypeName="DBModel.DetalleServicio"><MappingFragment StoreEntitySet="DetalleServicio">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+            <ScalarProperty Name="IdEstudio" ColumnName="IdEstudio" />
+            <ScalarProperty Name="Precio" ColumnName="Precio" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Diagnostico"><EntityTypeMapping TypeName="DBModel.Diagnostico"><MappingFragment StoreEntitySet="Diagnostico">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+            <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="EstadoServicio"><EntityTypeMapping TypeName="DBModel.EstadoServicio"><MappingFragment StoreEntitySet="EstadoServicio">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Estudio"><EntityTypeMapping TypeName="DBModel.Estudio"><MappingFragment StoreEntitySet="Estudio">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+            <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+            <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+            <ScalarProperty Name="Costo" ColumnName="Costo" />
+            <ScalarProperty Name="Activo" ColumnName="Activo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="LugarResidencia"><EntityTypeMapping TypeName="DBModel.LugarResidencia"><MappingFragment StoreEntitySet="LugarResidencia">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MedicoCanalizador"><EntityTypeMapping TypeName="DBModel.MedicoCanalizador"><MappingFragment StoreEntitySet="MedicoCanalizador">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+            <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+            <ScalarProperty Name="CedulaProfesional" ColumnName="CedulaProfesional" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MedicoCE"><EntityTypeMapping TypeName="DBModel.MedicoCE"><MappingFragment StoreEntitySet="MedicoCE">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+            <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+            <ScalarProperty Name="Especialidad" ColumnName="Especialidad" />
+            <ScalarProperty Name="CedulaProfesional" ColumnName="CedulaProfesional" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Paciente"><EntityTypeMapping TypeName="DBModel.Paciente"><MappingFragment StoreEntitySet="Paciente">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+            <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+            <ScalarProperty Name="Edad" ColumnName="Edad" />
+            <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+            <ScalarProperty Name="IdLugarResidencia" ColumnName="IdLugarResidencia" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Rol"><EntityTypeMapping TypeName="DBModel.Rol"><MappingFragment StoreEntitySet="Rol">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+            <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Servicio"><EntityTypeMapping TypeName="DBModel.Servicio"><MappingFragment StoreEntitySet="Servicio">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+            <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
+            <ScalarProperty Name="IdMedicoCanalizador" ColumnName="IdMedicoCanalizador" />
+            <ScalarProperty Name="IdMedicoResponsable" ColumnName="IdMedicoResponsable" />
+            <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+            <ScalarProperty Name="Pagado" ColumnName="Pagado" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Usuario"><EntityTypeMapping TypeName="DBModel.Usuario"><MappingFragment StoreEntitySet="Usuario">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+            <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+            <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="Activo" ColumnName="Activo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="UsuarioMedico"><EntityTypeMapping TypeName="DBModel.UsuarioMedico"><MappingFragment StoreEntitySet="UsuarioMedico">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+            <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="IngresosFechas" FunctionName="DBModel.Store.IngresosFechas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBModel.IngresosFechas_Result">
+                <ScalarProperty Name="Dia" ColumnName="Dia" />
+                <ScalarProperty Name="Ingreso" ColumnName="Ingreso" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ServiciosPrestados" FunctionName="DBModel.Store.ServiciosPrestados">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBModel.ServiciosPrestados_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Paciente" ColumnName="Paciente" />
+                <ScalarProperty Name="Solicito" ColumnName="Solicito" />
+                <ScalarProperty Name="Atendio" ColumnName="Atendio" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="IngresosDia" FunctionName="DBModel.Store.IngresosDia">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBModel.IngresosDia_Result">
+                <ScalarProperty Name="Dia" ColumnName="Dia" />
+                <ScalarProperty Name="Ingreso" ColumnName="Ingreso" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="EstudiosRealizados" FunctionName="DBModel.Store.EstudiosRealizados">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBModel.EstudiosRealizados_Result">
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IDEstudio" ColumnName="IDEstudio" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Realizados" ColumnName="Realizados" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Modelo" ZoomLevel="79">
+        <EntityTypeShape EntityType="DBModel.Area" Width="1.5" PointX="10.5" PointY="7" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.AreaMedico" Width="1.5" PointX="8.25" PointY="7.125" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.DetalleServicio" Width="1.5" PointX="13" PointY="3.5" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Diagnostico" Width="1.5" PointX="13" PointY="6.25" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.EstadoServicio" Width="1.5" PointX="7.875" PointY="0.5" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Estudio" Width="1.5" PointX="15.25" PointY="2.875" Height="2.364889322916667" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.LugarResidencia" Width="1.5" PointX="15.125" PointY="0.5" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.MedicoCanalizador" Width="1.5" PointX="10.125" PointY="0.5" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.MedicoCE" Width="1.5" PointX="8.125" PointY="3.75" Height="2.5571907552083308" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Paciente" Width="1.5" PointX="12.75" PointY="0.5" Height="2.5571907552083353" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Rol" Width="1.5" PointX="5.5" PointY="6.375" Height="1.787985026041671" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Servicio" Width="1.5" PointX="10.5" PointY="3.125" Height="3.5186979166666665" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Usuario" Width="1.5" PointX="3.25" PointY="3.75" Height="2.5571907552083388" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.UsuarioMedico" Width="1.5" PointX="5.5" PointY="1.5" Height="1.9802864583333388" IsExpanded="true" />
+        <AssociationConnector Association="DBModel.FK_AreaMedico_AreaCategoria" ManuallyRouted="false">
+          <ConnectorPoint PointX="10.5" PointY="7.860341796875" />
+          <ConnectorPoint PointX="9.75" PointY="7.860341796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBModel.FK_AreaMedico_MedicoCE" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.1585343456701143" PointY="6.3071907552083308" />
+          <ConnectorPoint PointX="9.1585343456701143" PointY="7.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBModel.FK_DetalleServicio_Estudio" ManuallyRouted="false">
+          <ConnectorPoint PointX="15.25" PointY="4.3699446614583337" />
+          <ConnectorPoint PointX="14.5" PointY="4.3699446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBModel.FK_DetalleServicio_Servicio" ManuallyRouted="false">
+          <ConnectorPoint PointX="12" PointY="4.5862939453125" />
+          <ConnectorPoint PointX="13" PointY="4.5862939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBModel.FK_Diagnostico_Servicio" ManuallyRouted="false">
+          <ConnectorPoint PointX="12" PointY="6.4468489583333337" />
+          <ConnectorPoint PointX="13" PointY="6.4468489583333337" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBModel.FK_Servicio_EstadoServicio" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.96875" PointY="2.0956835937499996" />
+          <ConnectorPoint PointX="7.96875" PointY="3.40625" />
+          <ConnectorPoint PointX="10.5" PointY="3.40625" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBModel.FK_Paciente_LugarResidencia" ManuallyRouted="false">
+          <ConnectorPoint PointX="15.125" PointY="1.2978417968749998" />
+          <ConnectorPoint PointX="14.25" PointY="1.2978417968749998" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBModel.FK_Servicio_MedicoCanalizador" ManuallyRouted="false">
+          <ConnectorPoint PointX="11.0625" PointY="2.4802864583333317" />
+          <ConnectorPoint PointX="11.0625" PointY="3.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBModel.FK_Servicio_MedicoCE" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.625" PointY="5.0285953776041659" />
+          <ConnectorPoint PointX="10.5" PointY="5.0285953776041659" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBModel.FK_UsuarioMedico_MedicoCE" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.125" PointY="4.5142976888020847" />
+          <ConnectorPoint PointX="6.625" PointY="4.5142976888020847" />
+          <ConnectorPoint PointX="6.625" PointY="3.4802864583333388" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBModel.FK_Servicio_Paciente" ManuallyRouted="false">
+          <ConnectorPoint PointX="12.75" PointY="2.7999886067708335" />
+          <ConnectorPoint PointX="11.84375" PointY="2.7999886067708335" />
+          <ConnectorPoint PointX="11.84375" PointY="3.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBModel.FK_Rol_Usuario" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.75" PointY="5.4107442220052118" />
+          <ConnectorPoint PointX="6.0625" PointY="5.4107442220052118" />
+          <ConnectorPoint PointX="6.0625" PointY="6.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBModel.FK_UsuarioMedico_Usuario" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.75" PointY="4.9312684554036474" />
+          <ConnectorPoint PointX="5.78125" PointY="4.9312684554036474" />
+          <ConnectorPoint PointX="5.78125" PointY="3.4802864583333388" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
